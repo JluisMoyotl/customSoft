@@ -1,9 +1,11 @@
 import 'package:custom_soft/components/widgets/anuncio.dart';
 import 'package:custom_soft/models/anuncio.dart';
 import 'package:custom_soft/models/enum/anuncio.dart';
+import 'package:custom_soft/services/anuncio.dart';
 import 'package:custom_soft/styles/colors.dart';
 import 'package:custom_soft/styles/texts.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Home extends StatefulWidget{
   static const String routeName = "/home";
@@ -13,13 +15,59 @@ class Home extends StatefulWidget{
   State<StatefulWidget> createState()=> _Home();
 }
 class _Home extends State<Home>{
-  List<AnuncioModel> _anuncios = [AnuncioModel.empty(),AnuncioModel.empty(),AnuncioModel.empty()];
+  List<AnuncioModel> _anuncios = [];
   TypeAnuncio typeCurrent = TypeAnuncio.autos;
   TextEditingController searchTo = TextEditingController();
+  ScrollController scroll = ScrollController();
+  int page = 1;
+  bool loading = false;
+
+  @override
+  void initState(){
+    super.initState();
+    Future.microtask(_fecthInfo);
+    scroll.addListener(() {
+      if (scroll.position.pixels >= scroll.position.maxScrollExtent && !loading) {
+        page = 2;
+        _fecthInfo();
+      }
+    });
+  }
 
   _updateType(TypeAnuncio current){
     setState(() {
       typeCurrent = current;
+    });
+    _fecthInfo();
+  }
+  Future<void> _fecthInfo()async{
+    setState(()=> loading = true);
+    await workListServices().then((answer){
+      if(answer.error){
+        setState(()=> loading = false);
+        Fluttertoast.showToast(
+          msg: answer.message,
+          toastLength: Toast.LENGTH_LONG,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.black54,
+          textColor: Colors.white,
+          fontSize: 16.0,
+        );
+      }else{
+          List<AnuncioModel> list = List.from((answer.body.map((item)=> 
+            AnuncioModel.fromJson(item)).toList())
+              .where((anuncio) => anuncio.type == typeCurrent));
+        setState(() {
+          if(list.length >= page * 5){
+            _anuncios = list.sublist(0,page * 5);
+          }else{
+            _anuncios = list;
+          }
+          setState(()=> loading = false);
+        });
+        
+      }
     });
   }
 
@@ -31,11 +79,24 @@ class _Home extends State<Home>{
         children: [
           _typesButton(),
           _searchTo(),
+          const SizedBox(height: 10),
           Expanded(
-            child: ListView(
-              children: _anuncios.where((anuncio) => anuncio.type == typeCurrent)
-                .map((e) => AnuncioCard(current: e)).toList()
-            ),
+            child: Stack(
+              children: [
+                ListView(
+                  controller: scroll,
+                  children: _anuncios.where((anuncio) => anuncio.type == typeCurrent 
+                    && (searchTo.text.isEmpty || anuncio.title.contains(searchTo.text)))
+                      .map((e) => AnuncioCard(current: e)).toList()
+                ),
+                Visibility(
+                  visible: loading,
+                  child: const Center(
+                    child: CircularProgressIndicator()
+                  )
+                )
+              ],
+            )
           )
         ],
       )
@@ -73,7 +134,7 @@ class _Home extends State<Home>{
                 color: typeCurrent == TypeAnuncio.inmuebles ? UIColors.black : null,
                 alignment: Alignment.center,
                 padding: const EdgeInsets.symmetric(vertical: 5),
-                width: MediaQuery.of(context).size.width * .32,
+                width: MediaQuery.of(context).size.width * .31,
                 child: Text(
                   TypeAnuncio.inmuebles.name,
                   style: TextStyle(
@@ -108,17 +169,16 @@ class _Home extends State<Home>{
   }
   Widget _searchTo(){
     return TextFormField(
-          controller: searchTo,
-          textAlignVertical: TextAlignVertical.center,
-          maxLines: 1,
-          style: textTheme.bodyMedium!,
-          decoration: InputDecoration(
-            prefixIcon: Icon(Icons.search, color: UIColors.black),
-            hintText: 'Search',
-            hintStyle: Theme.of(context).textTheme.bodyMedium
-              !.copyWith(color: Colors.blueGrey[200]),
-            
-          ),
+      controller: searchTo,
+      textAlignVertical: TextAlignVertical.center,
+      maxLines: 1,
+      style: textTheme.bodyMedium!,
+      decoration: InputDecoration(
+        prefixIcon: const Icon(Icons.search, color: UIColors.black),
+        hintText: 'Search',
+        hintStyle: Theme.of(context).textTheme.bodyMedium!
+          .copyWith(color: Colors.blueGrey[200]),  
+      ),
     );
   }
 }

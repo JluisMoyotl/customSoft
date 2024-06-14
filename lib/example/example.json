@@ -1,0 +1,307 @@
+{"list":[
+    {
+      "id": 1,
+      "reviews": 2,
+      "latitude": "19.041607",
+      "longitude": "-98.215158",
+      "price": 350000,
+      "stars": 4,
+      "title": "Maxda cx5",
+      "image": "https://www.mazda.mx/siteassets/mazda-mx/mycos-2024/mazda-cx-5/versiones/mazda-mexico-cx-5-vlp-versiones-signature-v1.png",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "type": "auto",
+      "seller": {
+        "id": 1,
+        "name": "Mazda Centro",
+        "image": "https://www.mazda.mx/siteassets/distribuidores/culiacan/acerca-de-nosotros/mazda-mazatlan-nosotros-v1.jpg",
+        "phone": "+522225061873",
+        "email": "luismoyotl.p@gmail.com"
+      }
+    },
+    {
+      "id": 2,
+      "reviews": 0,
+      "latitude": "19.041607",
+      "longitude": "-98.215180",
+      "price": 350000,
+      "stars": 2,
+      "title": "MG",
+      "image": "https://acroadtrip.blob.core.windows.net/catalogo-imagenes/m/RT_V_777193ca0a424d1f85ae690bcca81f9a.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "type": "auto",
+      "seller": {
+        "id": 2,
+        "name": "MG Centro",
+        "image": "https://www.mazda.mx/siteassets/distribuidores/culiacan/acerca-de-nosotros/mazda-mazatlan-nosotros-v1.jpg",
+        "phone": "+522225061873",
+        "email": "luismoyotl.p@gmail.com"
+      }
+    },
+    {
+      "id": 3,
+      "reviews": 0,
+      "latitude": "19.041607",
+      "longitude": "-98.215180",
+      "price": 350000,
+      "stars": 3,
+      "title": "MG",
+      "image": "https://img.remediosdigitales.com/13f237/mg-one-precio-mexico_/1366_2000.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "type": "auto",
+      "seller": {
+        "id": 3,
+        "name": "MG Sur",
+        "image": "https://www.mazda.mx/siteassets/distribuidores/culiacan/acerca-de-nosotros/mazda-mazatlan-nosotros-v1.jpg",
+        "phone": "+522225061873",
+        "email": "luismoyotl.p@gmail.com"
+      }
+    },
+    {
+      "id": 4,
+      "reviews": 10,
+      "latitude": "19.041610",
+      "longitude": "-98.215158",
+      "price": 350000,
+      "stars": 5,
+      "title": "Maxda",
+      "image": "https://www.mazda.mx/siteassets/mazda-mx/mycos-2024/mazda-cx-5/versiones/mazda-mexico-cx-5-vlp-versiones-signature-v1.png",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "type": "auto",
+      "seller": {
+        "id": 4,
+        "name": "Mazda Norte",
+        "image": "https://www.mazda.mx/siteassets/distribuidores/culiacan/acerca-de-nosotros/mazda-mazatlan-nosotros-v1.jpg",
+        "phone": "+522225061873",
+        "email": "luismoyotl.p@gmail.com"
+      }
+    },
+    {
+      "id": 5,
+      "reviews": 2,
+      "latitude": "19.041607",
+      "longitude": "-98.215158",
+      "price": 350000,
+      "stars": 4,
+      "title": "Maxda cx5",
+      "image": "https://cars.usnews.com/static/images/Auto/custom/15567/2024_Mazda_CX-30_Angular_Front_1.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "type": "auto",
+      "seller": {
+        "id": 1,
+        "name": "Mazda Centro",
+        "image": "https://www.mazda.mx/siteassets/distribuidores/culiacan/acerca-de-nosotros/mazda-mazatlan-nosotros-v1.jpg",
+        "phone": "+522225061873",
+        "email": "luismoyotl.p@gmail.com"
+      }
+    },
+    {
+      "id": 6,
+      "reviews": 0,
+      "latitude": "19.041607",
+      "longitude": "-98.215180",
+      "price": 350000,
+      "stars": 2,
+      "title": "MG",
+      "image": "https://acroadtrip.blob.core.windows.net/catalogo-imagenes/m/RT_V_777193ca0a424d1f85ae690bcca81f9a.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "type": "auto",
+      "seller": {
+        "id": 2,
+        "name": "MG Centro",
+        "image": "https://www.mazda.mx/siteassets/distribuidores/culiacan/acerca-de-nosotros/mazda-mazatlan-nosotros-v1.jpg",
+        "phone": "+522225061873",
+        "email": "luismoyotl.p@gmail.com"
+      }
+    },
+    {
+      "id": 7,
+      "reviews": 0,
+      "latitude": "19.041607",
+      "longitude": "-98.215180",
+      "price": 350000,
+      "stars": 3,
+      "title": "MG",
+      "image": "https://acroadtrip.blob.core.windows.net/catalogo-imagenes/s/RT_V_89779d71380548cea726392070ab3bee.webp",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "type": "auto",
+      "seller": {
+        "id": 3,
+        "name": "MG Sur",
+        "image": "https://acroadtrip.blob.core.windows.net/catalogo-imagenes/m/RT_V_37baa50e2ae4471aabe9d98aa3846543.jpg",
+        "phone": "+522225061873",
+        "email": "luismoyotl.p@gmail.com"
+      }
+    },
+    {
+      "id": 8,
+      "reviews": 10,
+      "latitude": "19.041610",
+      "longitude": "-98.215158",
+      "price": 350000,
+      "stars": 5,
+      "title": "Maxda",
+      "image": "https://www.mazda.mx/siteassets/mazda-mx/mycos-2024/mazda-cx-5/versiones/mazda-mexico-cx-5-vlp-versiones-signature-v1.png",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "type": "auto",
+      "seller": {
+        "id": 4,
+        "name": "Mazda Norte",
+        "image": "https://www.mazda.mx/siteassets/distribuidores/culiacan/acerca-de-nosotros/mazda-mazatlan-nosotros-v1.jpg",
+        "phone": "+522225061873",
+        "email": "luismoyotl.p@gmail.com"
+      }
+    },
+    {
+      "id": 1,
+      "reviews": 2,
+      "latitude": "19.041607",
+      "longitude": "-98.215158",
+      "price": 350000,
+      "stars": 4,
+      "title": "Lavadora",
+      "image": "https://cdn1.coppel.com/images/catalog/pm/6630343-1.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "type": "electronico",
+      "seller": {
+        "id": 1,
+        "name": "Mazda Centro",
+        "image": "https://www.mazda.mx/siteassets/distribuidores/culiacan/acerca-de-nosotros/mazda-mazatlan-nosotros-v1.jpg",
+        "phone": "+522225061873",
+        "email": "luismoyotl.p@gmail.com"
+      }
+    },
+    {
+      "id": 2,
+      "reviews": 0,
+      "latitude": "19.041607",
+      "longitude": "-98.215180",
+      "price": 350000,
+      "stars": 2,
+      "title": "Estufa",
+      "image": "https://www.lg.com/content/dam/channel/wcms/mx/images/estufas/lrgz5253s_cstfgss_enms_mx_c/features/H-A-Cooking-Oven-Good-ODM-02-auto-ignition-mobile.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "type": "electronico",
+      "seller": {
+        "id": 2,
+        "name": "MG Centro",
+        "image": "https://www.mazda.mx/siteassets/distribuidores/culiacan/acerca-de-nosotros/mazda-mazatlan-nosotros-v1.jpg",
+        "phone": "+522225061873",
+        "email": "luismoyotl.p@gmail.com"
+      }
+    },
+    {
+      "id": 3,
+      "reviews": 0,
+      "latitude": "19.041607",
+      "longitude": "-98.215180",
+      "price": 350000,
+      "stars": 3,
+      "title": "Micro",
+      "image": "https://static.eldiario.es/clip/cf46993f-66f7-45e6-b7ea-e6655b104cb6_16-9-discover-aspect-ratio_default_0.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "type": "electronico",
+      "seller": {
+        "id": 3,
+        "name": "MG Sur",
+        "image": "https://www.mazda.mx/siteassets/distribuidores/culiacan/acerca-de-nosotros/mazda-mazatlan-nosotros-v1.jpg",
+        "phone": "+522225061873",
+        "email": "luismoyotl.p@gmail.com"
+      }
+    },
+    {
+      "id": 4,
+      "reviews": 10,
+      "latitude": "19.041610",
+      "longitude": "-98.215158",
+      "price": 350000,
+      "stars": 5,
+      "title": "Licuadora",
+      "image": "https://assets.sams.com.mx/image/upload/f_auto,q_auto:eco,w_350,c_scale,dpr_auto/mx/images/product-images/img_medium/981000794m.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "type": "electronico",
+      "seller": {
+        "id": 4,
+        "name": "Mazda Norte",
+        "image": "https://www.mazda.mx/siteassets/distribuidores/culiacan/acerca-de-nosotros/mazda-mazatlan-nosotros-v1.jpg",
+        "phone": "+522225061873",
+        "email": "luismoyotl.p@gmail.com"
+      }
+    },
+    {
+      "id": 5,
+      "reviews": 2,
+      "latitude": "19.041607",
+      "longitude": "-98.215158",
+      "price": 350000,
+      "stars": 4,
+      "title": "Plancha",
+      "image": "https://www.sicalingenieros.com/wp-content/uploads/2022/08/plancha-mas-eficiente.png",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "type": "electronico",
+      "seller": {
+        "id": 1,
+        "name": "Mazda Centro",
+        "image": "https://www.mazda.mx/siteassets/distribuidores/culiacan/acerca-de-nosotros/mazda-mazatlan-nosotros-v1.jpg",
+        "phone": "+522225061873",
+        "email": "luismoyotl.p@gmail.com"
+      }
+    },
+    {
+      "id": 6,
+      "reviews": 0,
+      "latitude": "19.041607",
+      "longitude": "-98.215180",
+      "price": 350000,
+      "stars": 2,
+      "title": "Tostador",
+      "image": "https://m.media-amazon.com/images/I/51yqV0dGNSL._AC_UF894,1000_QL80_.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "type": "electronico",
+      "seller": {
+        "id": 2,
+        "name": "MG Centro",
+        "image": "https://www.mazda.mx/siteassets/distribuidores/culiacan/acerca-de-nosotros/mazda-mazatlan-nosotros-v1.jpg",
+        "phone": "+522225061873",
+        "email": "luismoyotl.p@gmail.com"
+      }
+    },
+    {
+      "id": 7,
+      "reviews": 0,
+      "latitude": "19.041607",
+      "longitude": "-98.215180",
+      "price": 350000,
+      "stars": 3,
+      "title": "Tostador",
+      "image": "https://mshometech.com/wp-content/uploads/2023/06/TOSTADOR8.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "type": "electronico",
+      "seller": {
+        "id": 3,
+        "name": "MG Sur",
+        "image": "https://acroadtrip.blob.core.windows.net/catalogo-imagenes/m/RT_V_37baa50e2ae4471aabe9d98aa3846543.jpg",
+        "phone": "+522225061873",
+        "email": "luismoyotl.p@gmail.com"
+      }
+    },
+    {
+      "id": 8,
+      "reviews": 10,
+      "latitude": "19.041610",
+      "longitude": "-98.215158",
+      "price": 350000,
+      "stars": 5,
+      "title": "Freidora",
+      "image": "https://m.media-amazon.com/images/I/41A1QnB-wSL._AC_.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "type": "electronico",
+      "seller": {
+        "id": 4,
+        "name": "Mazda Norte",
+        "image": "https://www.mazda.mx/siteassets/distribuidores/culiacan/acerca-de-nosotros/mazda-mazatlan-nosotros-v1.jpg",
+        "phone": "+522225061873",
+        "email": "luismoyotl.p@gmail.com"
+      }
+    }
+  ]
+}

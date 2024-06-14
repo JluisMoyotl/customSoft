@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "598535476631",
+    "project_id": "customsoft-76986",
+    "storage_bucket": "customsoft-76986.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598535476631:android:ce70c4bad688700bd6a0d2",
+        "android_client_info": {
+          "package_name": "com.example.custom_soft"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBst98KK6ma7_2RN8U7gkQXVO6mv2MM9hc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

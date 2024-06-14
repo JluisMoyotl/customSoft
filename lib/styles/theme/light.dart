@@ -50,21 +50,28 @@ final ThemeData lightTheme = ThemeData (
       color: UIColors.error,
       fontWeight: FontWeight.w500
     ),
-    border: const UnderlineInputBorder(
-      borderSide: BorderSide(color: UIColors.black),
+    filled: true,
+    fillColor: UIColors.greyBottomBar,
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide.none
     ),
-    focusedBorder: const UnderlineInputBorder(
-      borderSide: BorderSide(color: UIColors.white),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide.none
     ),
-    disabledBorder: const UnderlineInputBorder(
-      borderSide: BorderSide(color: UIColors.white),
+    disabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide.none
     ),
-    enabledBorder: const OutlineInputBorder(
-      borderSide: BorderSide(color: UIColors.black),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide.none
     ),
-    errorBorder: const UnderlineInputBorder(
-      borderSide: BorderSide(color: UIColors.error),
-    )
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide.none
+    ),
   ),
   elevatedButtonTheme: ElevatedButtonThemeData (
     style: ButtonStyle(
