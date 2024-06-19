@@ -30,31 +30,36 @@ Future<Answer> sendEmailServices(
   {
     required String email,
     required String name,
-    required String message
+    required String message,
+    required String user,
+    required String auth,
+    required String userId
   }
 ) async {
-  String path =  "/v1/email";
-  Map<String,dynamic> body = {
-    "from": {
-        "email": "hybridtechnologiestbc@gmail.com"
-    },
-    "to": [
-        {
-            "email": email
-        }
-    ],
-    "subject": "SE RECIBIO UN COMENTARIO DESDE EL SISTEMA DE ANUNCIOS EMPRESARIALES CON LA SIGUIENTE INFORMACÓN DE CONTACTO",
-    "text": "NOMBRE: $name\nCORREO CONTACTO: $email\nMENSAJE:\n$message",
-  };
   try {
-    Response response = await http.post(
-      Uri.https("api.mailersend.com",path),
+    final emailContent = '''
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+to: $email
+subject: SE RECIBIO UN COMENTARIO DESDE EL SISTEMA DE ANUNCIOS EMPRESARIALES CON LA SIGUIENTE INFORMACiON DE CONTACTO
+
+NOMBRE: $name\nCORREO CONTACTO: $email\nMENSAJE:\n$message.
+''';
+
+    var base64 = base64UrlEncode(utf8.encode(emailContent));
+    var body = json.encode({'raw': base64});
+
+    String url = 
+      'https://www.googleapis.com/gmail/v1/users/'+userId +'/messages/send';
+    final http.Response response = await http.post(
+      Uri.parse(url),
       headers: {
-        "Content-Type": "application/json",
-        "X-Requested-With": "XMLHttpRequest",
-        "Authorization": "Bearer mlsn.aed582df03a1f7ff3bf53e9ce41a4f95cb9e2512c2e64c0f9d1133113352e011"
-        },
-        body: jsonEncode(body)
+              'Authorization': auth, 
+              'X-Goog-AuthUser': user,
+              'Content-Type': 'message/rfc822'
+            },
+      body: body
     );
     return Answer.fromService(response, 200);
   } on SocketException catch(_){
