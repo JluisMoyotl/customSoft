@@ -18,16 +18,20 @@ dependencies:
   skeletons: ^0.0.3
   cached_network_image: ^3.3.1
   fluttertoast: ^8.0.9
-  http: ^1.2.1
+  
   mailto: ^2.0.0
   url_launcher: ^6.3.0
   carousel_slider: ^4.2.1
   intl: ^0.19.0
+  googleapis: ^10.0.0
+  googleapis_auth: ^1.4.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+dependency_overrides:
+  http: ^1.2.1
 
 flutter:
   uses-material-design: true

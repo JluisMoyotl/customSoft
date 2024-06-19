@@ -170,6 +170,7 @@ class _Home extends State<Home>{
   Widget _searchTo(){
     return TextFormField(
       controller: searchTo,
+      onChanged: (value) => setState(() {}),
       textAlignVertical: TextAlignVertical.center,
       maxLines: 1,
       style: textTheme.bodyMedium!,

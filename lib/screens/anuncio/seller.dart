@@ -1,16 +1,23 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:custom_soft/models/seller.dart';
-import 'package:custom_soft/services/anuncio.dart';
 import 'package:custom_soft/styles/colors.dart';
 import 'package:custom_soft/styles/texts.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:googleapis/gmail/v1.dart';
+import 'package:googleapis_auth/auth_io.dart';
+import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher_string.dart';
 
 class Seller extends StatelessWidget{
   final SellerModel current;
   Seller({super.key,required this.current});
-
+  
+  static const _scopes = [GmailApi.gmailSendScope];
+  final _clientId = ClientId('598535476631-gugeha686dbl4qdpjjdd2rs35d2ttdoa.apps.googleusercontent.com');
   final GlobalKey<FormState> formKey = GlobalKey();
   TextEditingController name = TextEditingController();
   TextEditingController email = TextEditingController();
@@ -20,32 +27,76 @@ class Seller extends StatelessWidget{
     bool formComplete = formKey.currentState!.validate();
 
     if(formComplete){
-    await sendEmailServices
-      (email: email.text, name: name.text, message: description.text).then((answer){
-        if(answer.error){
-          Fluttertoast.showToast(
-            msg: answer.message,
-            toastLength: Toast.LENGTH_LONG,
-            gravity: ToastGravity.BOTTOM,
-            timeInSecForIosWeb: 1,
-            backgroundColor: Colors.black54,
-            textColor: Colors.white,
-            fontSize: 16.0,
-          );
-        }else{
-          Fluttertoast.showToast(
-            msg: "Correo enviado correctamente.",
-            toastLength: Toast.LENGTH_LONG,
-            gravity: ToastGravity.BOTTOM,
-            timeInSecForIosWeb: 1,
-            backgroundColor: Colors.green,
-            textColor: Colors.white,
-            fontSize: 16.0,
-          );
-        }
-      });
+      //testingEmail("luismoyotl1b@gmail.com", "0","Bearer ya29.a0AXooCgvDagPa8sWvpvM6H8ZX7GPGiBA4pzXMT1u99jAl1Q9T5kH59W0A2Ynn3oPECr_9Gn6tsZq5V1T1niG3kGMG7mGEA3y71_v8uHJbTjZo6Xsng1_2SCJ1oDose7uImIpSh7au0XZpQfZCKz_akN0dc6QN0ajuoAaCgYKASkSARMSFQHGX2MisB8D6jx9qRE5ZdgRrb2Jgg0169");
+      _sendEmail2();
     }
   }
+  void _prompt(String url) {
+    launchUrlString(url);
+  }
+  Future<void> _sendEmail2() async {
+    await clientViaUserConsent(_clientId, _scopes, _prompt)
+        .then((AuthClient client) async {
+      var email = Message()
+        ..raw = base64UrlEncode(utf8.encode('''Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+to: recipient@example.com
+subject: Test Email from Flutter
+
+This is a test email from a Flutter app using Gmail API.
+'''));
+
+      var gmailApi = GmailApi(client);
+      try {
+        await gmailApi.users.messages.send(email, 'me');
+        print('Email sent successfully');
+      } catch (e) {
+        print('Failed to send email: $e');
+      }
+      client.close();
+    }).catchError((e) {
+      print('Error: $e');
+    });
+  }
+  Future<Null> testingEmail(String userId, String user,String auth) async {
+    var from = userId;
+    var to = email.text;
+    var subject = 'SE RECIBIO UN COMENTARIO DESDE EL SISTEMA DE ANUNCIOS EMPRESARIALES CON LA SIGUIENTE INFORMACÓN DE CONTACTO';
+    //var message = 'worked!!!';
+    var message = "NOMBRE: ${name.text}\nCORREO CONTACTO: ${email.text}\nMENSAJE:\n${description.text}";
+    var content = '''
+    Content-Type: text/html; charset="us-ascii"
+    MIME-Version: 1.0
+    Content-Transfer-Encoding: 7bit
+    to: ${to}
+    from: ${from}
+    subject: ${subject}
+
+    ${message}''';
+
+  var bytes = utf8.encode(content);
+  var base64 = base64Encode(bytes);
+  var body = json.encode({'raw': base64});
+
+  String url = 'https://www.googleapis.com/gmail/v1/users/' + userId + '/messages/send';
+  final http.Response response = await http.post(
+    Uri.parse(url),
+    headers: {
+            'Authorization': auth, 
+            'X-Goog-AuthUser': user,
+            'Accept': 'application/json',
+            'Content-type': 'application/json'
+          },
+    body: body
+  );
+  log("Completado:  ${response.body.toString()}");
+  if (response.statusCode != 200) {
+    return;
+  }
+  final Map<String, dynamic> data = json.decode(response.body);
+  print('ok: ' + response.statusCode.toString());
+}
   Future<void> _openPhone() async {
     if (current.phone.isNotEmpty) {
       await launchUrlString("tel: ${current.phone}");
